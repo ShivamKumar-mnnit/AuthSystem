@@ -4,11 +4,21 @@ import Mailgen from 'mailgen';
 import ENV from '../config.js';
 
 
+
+
 // https://ethereal.email/create
+// let nodeConfig = {
+//     host: "smtp.ethereal.email",
+//     port: 587,
+//     secure: false, // true for 465, false for other ports
+//     auth: {
+//         user: ENV.EMAIL, // generated ethereal user
+//         pass: ENV.PASSWORD, // generated ethereal password
+//     }
+// }
+
 let nodeConfig = {
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
+    service: "gmail",
     auth: {
         user: ENV.EMAIL, // generated ethereal user
         pass: ENV.PASSWORD, // generated ethereal password
@@ -40,7 +50,7 @@ export const registerMail = async (req, res) => {
     var email = {
         body : {
             name: username,
-            intro : text || 'Welcome to Daily Tuition! We\'re very excited to have you on board.',
+            intro : text || 'Welcome to Shivam! We\'re very excited to have you on board.',
             outro: 'Need help, or have questions? Just reply to this email, we\'d love to help.'
         }
     }
